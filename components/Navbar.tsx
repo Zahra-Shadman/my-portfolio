@@ -9,7 +9,8 @@ const Navbar: React.FC = () => {
         <Link
           href={"/hireMe"}
           className="hover:text-blue-300 transition duration-200"
-        >Hire Me
+        >
+          Hire Me
         </Link>
         <Link
           href={"/projects"}
