@@ -21,7 +21,7 @@ const HeroSection: React.FC = () => {
           className="w-full max-w-xs sm:max-w-sm md:max-w-[400px] self-center"
         >
           <Image
-            src={"/circleLogo.svg"}
+            src={"/Untitled.png"}
             alt={"logo"}
             width={400}
             height={400}

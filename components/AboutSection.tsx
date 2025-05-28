@@ -21,10 +21,10 @@ const AboutSection: React.FC = () => {
         }}
         className="flex justify-between mx-auto py-24"
       >
-        <Image src={"./pic2.svg"} alt={"pic2"} width={400} height={300} />
+        <Image src={"/pic2.png"} alt={"pic2"} width={400} height={200} />
         <ul className="flex flex-col gap-14">
           <li className="flex  items-center gap-3 bg-gradient-to-r from-[rgba(165,215,232,0.42)] to-transparent rounded-2xl p-4 bg-[length:0_100%] hover:bg-[length:100%_100%] bg-no-repeat transition-[0.5s]  cursor-pointer">
-            <Image src={"./image 4.svg"} alt={"svg"} width={40} height={40} />
+            <Image src={"/image 4.svg"} alt={"svg"} width={40} height={40} />
             <div>
               <h1>Frontend Developer</h1>
               <p className="text-lg break-after-auto">
