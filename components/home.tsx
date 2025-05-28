@@ -4,7 +4,7 @@ import HeroSection from "./HeroSection";
 import ProjectSlider from "./slides";
 import HireMe from "./hireMe";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className="bg-[#04152D] w-full min-h-screen opacity-100 relative">
       <div
