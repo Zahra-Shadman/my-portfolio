@@ -52,11 +52,14 @@ const ProjectSlider: React.FC = () => {
       >
         <CarouselContent>
           {images.map((img, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 ">
-              <div>
-                <Card className="bg-gray-900 border-none">
+            <CarouselItem
+              key={index}
+              className="basis-full sm:basis-1/2 lg:basis-1/3 flex justify-center"
+            >
+              <div className="w-full flex justify-center">
+                <Card className="bg-gray-900 border-none w-full max-w-xs sm:max-w-sm">
                   <CardContent className="flex flex-col aspect-square items-center justify-center">
-                    <div className="relative w-60 h-60 group">
+                    <div className="relative w-44 h-44 sm:w-60 sm:h-60 group">
                       <Image
                         width={240}
                         height={240}
@@ -65,7 +68,7 @@ const ProjectSlider: React.FC = () => {
                         className="w-full h-full object-cover rounded transition-all duration-300 group-hover:blur-sm"
                       />
                       <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30 rounded">
-                        <p className="text-white font-thin text-sm text-center mb-4 px-2">
+                        <p className="text-white font-thin text-xs sm:text-sm text-center mb-4 px-2">
                           {img.desc}
                         </p>
                         <div className="flex gap-2">
@@ -74,11 +77,13 @@ const ProjectSlider: React.FC = () => {
                               source code
                             </Button>
                           </a>
-                          <a href={img.demo}>
-                            <Button variant="outline" size="sm">
-                              demo
-                            </Button>
-                          </a>
+                          {img.demo && (
+                            <a href={img.demo}>
+                              <Button variant="outline" size="sm">
+                                demo
+                              </Button>
+                            </a>
+                          )}
                         </div>
                       </div>
                     </div>

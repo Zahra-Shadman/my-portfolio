@@ -9,7 +9,7 @@ import AboutSection from "./AboutSection";
 const HeroSection: React.FC = () => {
   return (
     <div className="relative w-full px-4 sm:px-6 md:px-14 mt-12">
-      <div className="w-[1250px] flex flex-col md:flex-row justify-end md:mr-44 gap-8 md:gap-20">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-center md:justify-end gap-8 md:gap-20">
         <AboutMeTypewriter />
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
             duration: 1,
             ease: "easeInOut",
           }}
-          className="w-full max-w-xs sm:max-w-sm md:max-w-[400px] self-center"
+          className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg self-center"
         >
           <Image
             src={"/Untitled.png"}
@@ -26,6 +26,7 @@ const HeroSection: React.FC = () => {
             width={400}
             height={400}
             className="w-full h-auto"
+            priority
           />
         </motion.div>
       </div>

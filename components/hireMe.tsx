@@ -82,10 +82,13 @@ Message: ${formData.message}`
   };
 
   return (
-    <section className="w-full flex flex-col items-center justify-center gap-4 bg-[#0C0C0C99] rounded-lg p-6 text-white max-w-md mx-auto mt-10">
+    <section className="w-full flex flex-col items-center justify-center gap-4 bg-[#0C0C0C99] rounded-lg p-6 text-white max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto mt-10">
       <Toaster />
-      <p>Do you want to hire me?</p>
-      <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
+      <p className="text-lg font-semibold">Do you want to hire me?</p>
+      <form
+        onSubmit={handleSubmit}
+        className="w-full flex flex-col gap-4"
+      >
         <Input
           name="fullName"
           value={formData.fullName}
@@ -117,11 +120,14 @@ Message: ${formData.message}`
         <button
           type="submit"
           disabled={isSubmitting}
-          className="mt-4 bg-[#0C0C0C] text-white py-2 px-4 rounded disabled:opacity-50 hover:bg-gray-800 transition-colors"
+          className="mt-4 bg-blue-950 text-white py-2 px-4 rounded-lg disabled:opacity-50 hover:bg-gray-800 transition-colors"
         >
           {isSubmitting ? "Sending..." : "Submit"}
         </button>
       </form>
+      <p className="text-xs text-gray-300 text-center mt-2 px-2">
+        Your request will be sent to my personal email and I will contact you for collaboration.
+      </p>
     </section>
   );
 };
