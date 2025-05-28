@@ -8,6 +8,7 @@ import {
 } from "./ui/carousel";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
+import Image from "next/image";
 
 const images = [
   {
@@ -56,7 +57,9 @@ const ProjectSlider: React.FC = () => {
                 <Card className="bg-gray-900 border-none">
                   <CardContent className="flex flex-col aspect-square items-center justify-center">
                     <div className="relative w-60 h-60 group">
-                      <img
+                      <Image
+                        width={240}
+                        height={240}
                         src={img.src}
                         alt={img.alt}
                         className="w-full h-full object-cover rounded transition-all duration-300 group-hover:blur-sm"

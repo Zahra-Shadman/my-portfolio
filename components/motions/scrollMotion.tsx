@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const ScrollAnimation = () => {
