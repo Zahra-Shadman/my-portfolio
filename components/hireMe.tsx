@@ -1,0 +1,129 @@
+"use client";
+import React, { useState } from "react";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Toaster } from "./ui/sonner";
+import { toast } from "sonner";
+
+const HireMe: React.FC = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    phoneNumber: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.fullName || !formData.email || !formData.message) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", formData.fullName);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("phone", formData.phoneNumber);
+      formDataToSend.append(
+        "message",
+        `A user with the above information requests collaboration and/or project registration.
+
+Full Name: ${formData.fullName}
+Phone Number: ${formData.phoneNumber}
+Email: ${formData.email}
+Message: ${formData.message}`
+      );
+      formDataToSend.append(
+        "_subject",
+        `Collaboration Request - ${formData.fullName}`
+      );
+      formDataToSend.append("_replyto", formData.email);
+
+      const response = await fetch("https://formspree.io/f/xgvkgpqp", {
+        method: "POST",
+        body: formDataToSend,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        toast.success("YOUR MESSAGE HAS BEEN SENT SUCCESSFULLY");
+        setFormData({
+          fullName: "",
+          phoneNumber: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error sending:", error);
+      toast.error("Error sending request. Please try again or contact us.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <section className="w-full flex flex-col items-center justify-center gap-4 bg-[#0C0C0C99] rounded-lg p-6 text-white max-w-md mx-auto mt-10">
+      <Toaster />
+      <p>Do you want to hire me?</p>
+      <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
+        <Input
+          name="fullName"
+          value={formData.fullName}
+          onChange={handleInputChange}
+          placeholder="Full Name"
+          required
+        />
+        <Input
+          name="phoneNumber"
+          value={formData.phoneNumber}
+          onChange={handleInputChange}
+          placeholder="Phone Number"
+        />
+        <Input
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          placeholder="Email Address"
+          required
+        />
+        <Textarea
+          name="message"
+          value={formData.message}
+          onChange={handleInputChange}
+          placeholder="Type your message here."
+          required
+        />
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="mt-4 bg-[#0C0C0C] text-white py-2 px-4 rounded disabled:opacity-50 hover:bg-gray-800 transition-colors"
+        >
+          {isSubmitting ? "Sending..." : "Submit"}
+        </button>
+      </form>
+    </section>
+  );
+};
+
+export default HireMe;

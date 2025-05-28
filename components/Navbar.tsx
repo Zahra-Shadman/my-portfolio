@@ -5,7 +5,8 @@ import React, { useState } from "react";
 const Navbar: React.FC = () => {
   return (
     <div className="flex justify-end gap-10 relative w-full max-w-[1064px] text-gray-200 px-4 font-medium">
-      <div className="mt-10 flex flex-wrap gap-10">
+      .
+      {/* <div className="mt-10 flex flex-wrap gap-10">
         <Link
           href={"/hireMe"}
           className="hover:text-blue-300 transition duration-200"
@@ -30,7 +31,7 @@ const Navbar: React.FC = () => {
         >
           About Me
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
