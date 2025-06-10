@@ -19,6 +19,13 @@ const images = [
     demo: "",
   },
   {
+    src: "/image10.png",
+    alt: "Project 5",
+    desc: "A fully working weather dashboard app with a login/logout feature",
+    link: "https://github.com/Zahra-Shadman/weather-app",
+    demo: "https://weather-app-six-hazel-62.vercel.app/",
+  },
+  {
     src: "/slide4.png",
     alt: "Project 2",
     desc: "A responsive Next.js web app for a cafe/restaurant menu, featuring a sleek, user-friendly interface to display menu items and prices. Includes an admin panel for easy management. Optimized for desktop and mobile.",
@@ -39,6 +46,7 @@ const images = [
     link: "https://github.com/Zahra-Shadman/react-sample-Form",
     demo: "",
   },
+
 ];
 
 const ProjectSlider: React.FC = () => {
