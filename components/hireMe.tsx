@@ -85,10 +85,7 @@ Message: ${formData.message}`
     <section className="w-full flex flex-col items-center justify-center gap-4 bg-[#0C0C0C99] rounded-lg p-6 text-white max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto mt-10">
       <Toaster />
       <p className="text-lg font-semibold">Do you want to hire me?</p>
-      <form
-        onSubmit={handleSubmit}
-        className="w-full flex flex-col gap-4"
-      >
+      <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
         <Input
           name="fullName"
           value={formData.fullName}
@@ -126,7 +123,8 @@ Message: ${formData.message}`
         </button>
       </form>
       <p className="text-xs text-gray-300 text-center mt-2 px-2">
-        Your request will be sent to my personal email and I will contact you for collaboration.
+        Your request will be sent to my personal email and I will contact you
+        for collaboration.
       </p>
     </section>
   );
