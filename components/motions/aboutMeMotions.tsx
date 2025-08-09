@@ -38,13 +38,13 @@ const AboutMeWordReveal: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full px-4 sm:px-6 md:px-14 mt-10">
+    <div className="relative w-full px-4 sm:px-6 md:px-14 mt-10 ">
       <div className="flex flex-col md:flex-row justify-end md:mr-44 gap-8 md:gap-20">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="flex flex-col text-lg mr-24 mt-24 gap-4 break-inside-auto w-full max-w-xs sm:max-w-sm md:max-w-[400px] text-blue-200"
+          className="flex flex-col text-lg mr-24 mt-24 gap-4 break-inside-auto w-full max-w-xs sm:max-w-sm md:max-w-[400px] text-[#123458]"
         >
           <motion.span
             className="text-3xl text-blue-100 sm:text-4xl md:text-5xl font-mono flex flex-wrap"
@@ -55,6 +55,7 @@ const AboutMeWordReveal: React.FC = () => {
                 key={index}
                 variants={wordVariants}
                 style={{ marginRight: "0.5rem" }}
+                className="text-[#123458]"
               >
                 {word}
               </motion.span>

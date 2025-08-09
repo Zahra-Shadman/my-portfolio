@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const AboutSection: React.FC = () => {
   return (
-    <section className="px-4 sm:px-8 md:px-12 lg:px-18 text-xl sm:text-2xl md:text-3xl font-medium text-left text-gray-50 w-full max-w-[1211px] mx-auto rounded-2xl bg-[#0C0C0C99] h-auto py-10 md:py-16">
+    <section className="px-4 sm:px-2 md:px-12 lg:px-18 text-xl sm:text-2xl md:text-3xl font-medium text-left text-[#F5F5F5]  w-full max-w-[1211px] mx-auto rounded-2xl bg-[#123458] h-auto py-4 md:py-2">
       <div>
         <ScrollAnimation />
       </div>

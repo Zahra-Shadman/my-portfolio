@@ -1,23 +1,39 @@
 "use client";
+import { useRef } from "react";
 import SKILLS from "./SkillsSection";
 import HeroSection from "./HeroSection";
-import ProjectSlider from "./slides";
+import ProjectSlider from "./projects";
 import HireMe from "./hireMe";
+import Navbar from "./navbar";
 
 export default function HomePage() {
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const hireMeRef = useRef<HTMLDivElement>(null);
+
+  const scrollToSection = (
+    section: "about" | "skills" | "projects" | "hireMe"
+  ) => {
+    const refs = {
+      about: aboutRef,
+      skills: skillsRef,
+      projects: projectsRef,
+      hireMe: hireMeRef,
+    };
+    refs[section].current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-<div className="bg-[#04152D] w-full min-h-screen opacity-100 relative overflow-x-hidden">      <div
-        className="bg-[#19376DB2]  blur-[200px]  w-[60vw] h-[60vw] max-w-[760px]
-       max-h-[674px] rounded-full opacity-90 absolute top-[-20%] left-[-30%] md:top-[-128px] md:left-[-216px]"
-      ></div>
-      <div
-        className="bg-[#19376DB2] blur-[200px] animate-pulse w-[50vw] h-[50vw] max-w-[600px] max-h-[450px]
-       rounded-full opacity-90 absolute top-[20%] left-[70%] md:top-[100px] md:left-[800px]"
-      ></div>
-      <HeroSection />
-      <SKILLS />
-      <ProjectSlider />
-      <HireMe />
+    <div className="z-0 inset-0 bg-[#ECEBDE] w-full min-h-screen opacity-100 relative overflow-x-hidden">
+      <div>
+        <Navbar scrollToSection={scrollToSection} />
+      </div>
+      <HeroSection ref={aboutRef} />
+      <SKILLS ref={skillsRef} />
+      <ProjectSlider ref={projectsRef} />
+      <HireMe ref={hireMeRef} />
+      
     </div>
   );
 }

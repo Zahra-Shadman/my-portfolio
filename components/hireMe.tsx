@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Toaster } from "./ui/sonner";
 import { toast } from "sonner";
 
-const HireMe: React.FC = () => {
+const HireMe= forwardRef<HTMLDivElement>((props, ref)=> {
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
@@ -82,7 +82,7 @@ Message: ${formData.message}`
   };
 
   return (
-    <section className="w-full flex flex-col items-center justify-center gap-4 bg-[#0C0C0C99] rounded-lg p-6 text-white max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto mt-10">
+    <section  ref={ref} className="w-full flex flex-col items-center justify-center gap-4 bg-blue-950 rounded-lg p-6 text-white max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mx-auto mt-10">
       <Toaster />
       <p className="text-lg font-semibold">Do you want to hire me?</p>
       <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
@@ -117,7 +117,7 @@ Message: ${formData.message}`
         <button
           type="submit"
           disabled={isSubmitting}
-          className="mt-4 bg-blue-950 text-white py-2 px-4 rounded-lg disabled:opacity-50 hover:bg-gray-800 transition-colors"
+          className="mt-4 bg-blue-50 text-black py-2 px-4 rounded-lg disabled:opacity-50 hover:bg-gray-500 transition-colors"
         >
           {isSubmitting ? "Sending..." : "Submit"}
         </button>
@@ -128,6 +128,6 @@ Message: ${formData.message}`
       </p>
     </section>
   );
-};
+});
 
 export default HireMe;
