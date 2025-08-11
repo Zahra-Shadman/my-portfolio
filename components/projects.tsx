@@ -21,7 +21,7 @@ const items = [
     demo: '',
   },
   {
-    image: '/image10.png',
+    image: '/weather.png',
     title: 'weather app',
     desc: 'A fully working weather dashboard app with a login/logout feature.',
     link: 'https://github.com/Zahra-Shadman/weather-app',
