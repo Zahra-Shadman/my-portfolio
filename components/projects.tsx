@@ -105,5 +105,6 @@ const ProjectSlider = forwardRef<HTMLDivElement>((props, ref) => {
     </div>
   );
 });
+ProjectSlider.displayName = 'projects';
 
 export default ProjectSlider;

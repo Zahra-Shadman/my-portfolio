@@ -129,5 +129,6 @@ Message: ${formData.message}`
     </section>
   );
 });
-
+HireMe.displayName = 'HireMe';
 export default HireMe;
+
